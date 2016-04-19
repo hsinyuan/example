@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script>
+
+        function send(){
+            var msg = $("#msg").val();
+            $.ajax({
+                type:"POST",
+                url: "http://127.0.0.1:8000/",
+                dataType: 'jsonp',  //data type必須設定成 'jsonp'
+                crossDomain: true,
+                data: {"message":msg},
+                success: function(json){
+                    console.log("success:"+json.message);
+                },
+                error: function(e){
+                    console.log("failed");
+                }
+            });
+            console.log("send:"+msg);
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="msg"/>
+ <button type="button" onclick="send()">Send!</button>
+</body>
+</html>
