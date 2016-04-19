@@ -11,7 +11,7 @@
             $.ajax({
                 type:"POST",
                 url: "http://127.0.0.1:8000/",
-                dataType: 'jsonp',  //data type必須設定成 'jsonp'
+                dataType: 'jsonp',  //data type must be 'jsonp'
                 crossDomain: true,
                 data: {"message":msg},
                 success: function(json){
